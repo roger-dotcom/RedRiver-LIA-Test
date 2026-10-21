@@ -2,6 +2,12 @@
 
 A full-stack book management application built with Angular 20 and ASP.NET Core 9 as part of a frontend development internship (LIA) technical assessment.
 
+## Live Application
+
+- **Frontend:** https://red-river-lia-test.vercel.app
+- **Backend API:** https://redriver-lia-test.onrender.com/api/books
+- **GitHub:** https://github.com/roger-dotcom/RedRiver-LIA-Test
+
 ## Tech Stack
 
 ### Frontend
@@ -20,14 +26,15 @@ A full-stack book management application built with Angular 20 and ASP.NET Core 
 
 ## Features
 
-- Display books retrieved from the backend API
-- User login with JWT authentication
-- Add new books
-- Edit existing books
-- Delete books
-- Restrict book management actions to authenticated users
-- Angular route guards for protected pages
-- Responsive user interface
+- View books retrieved from the backend API
+- Register a new user account
+- Log in and log out using JWT authentication
+- Add, edit and delete books
+- View favorite quotes
+- Add, edit and delete quotes
+- Restrict management actions to authenticated users
+- Navigation between application sections
+- Responsive design for desktop and mobile
 
 ## Project Structure
 
@@ -49,7 +56,7 @@ cd RedRiver.Api
 dotnet run
 ```
 
-Configure the JWT signing key using .NET User Secrets. Do not commit secret keys to Git.
+Configure the JWT signing key securely using .NET User Secrets or environment variables. Do not commit secret keys to Git.
 
 ### Frontend
 
@@ -63,14 +70,18 @@ npm start
 
 Open http://localhost:4200 in your browser.
 
-The backend API must be running for the frontend to retrieve and manage books.
+The backend API must be running for the frontend to retrieve and manage data.
 
 ## Deployment
 
-- Source code: GitHub
-- Frontend deployment: Vercel (planned)
-- Backend deployment: To be configured
+- Frontend hosted on Vercel
+- Backend hosted on Render
+- Source code hosted on GitHub
+
+The frontend communicates with the deployed REST API. The Render free service may take some time to respond after inactivity.
+
+**Note:** Books, quotes and registered users are currently stored in memory. Changes are reset when the backend restarts.
 
 ## Purpose
 
-This project demonstrates full-stack development, API integration, authentication, routing, and CRUD operations using Angular and ASP.NET Core.
+This project demonstrates frontend and backend development, REST API integration, JWT authentication, user registration, responsive design and CRUD operations using Angular and ASP.NET Core.
