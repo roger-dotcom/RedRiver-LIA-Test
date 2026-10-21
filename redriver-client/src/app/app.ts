@@ -38,7 +38,7 @@ export class App implements OnInit {
   registerMessage = '';
   registerError = '';
 
-  private apiUrl = 'http://localhost:5031/api';
+  private apiUrl = 'https://redriver-lia-test.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 

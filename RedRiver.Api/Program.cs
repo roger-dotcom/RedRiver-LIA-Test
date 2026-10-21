@@ -39,7 +39,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("Angular", policy =>
         policy
-            .WithOrigins("http://localhost:4200")
+         .WithOrigins(
+    "http://localhost:4200",
+    "https://red-river-lia-test.vercel.app"
+)
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
