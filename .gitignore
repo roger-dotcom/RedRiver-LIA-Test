@@ -1,0 +1,23 @@
+# Angular / Node.js
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+
+# ASP.NET Core
+**/bin/
+**/obj/
+**/.vs/
+
+# Local secrets and environment files
+**/.env
+**/.env.*
+**/appsettings.Development.json
+**/appsettings.Production.json
+**/secrets.json
+
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

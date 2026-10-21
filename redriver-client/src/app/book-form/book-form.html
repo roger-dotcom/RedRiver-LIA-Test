@@ -1,0 +1,64 @@
+<div class="container py-5">
+  <h1 class="text-primary mb-4">
+    {{ isEditMode ? 'Edit Book' : 'Add New Book' }}
+  </h1>
+
+  <div class="card shadow-sm p-4">
+    <form (ngSubmit)="saveBook()" #bookForm="ngForm">
+      <!-- Book title -->
+      <div class="mb-3">
+        <label for="title" class="form-label"> Book Title </label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form-control"
+          [(ngModel)]="title"
+          required
+        />
+      </div>
+
+      <!-- Author -->
+      <div class="mb-3">
+        <label for="author" class="form-label"> Author </label>
+        <input
+          type="text"
+          id="author"
+          name="author"
+          class="form-control"
+          [(ngModel)]="author"
+          required
+        />
+      </div>
+
+      <!-- Published date -->
+      <div class="mb-3">
+        <label for="publishedDate" class="form-label"> Published Date </label>
+        <input
+          type="date"
+          id="publishedDate"
+          name="publishedDate"
+          class="form-control"
+          [(ngModel)]="publishedDate"
+          required
+        />
+      </div>
+
+      <!-- Error message -->
+      @if (errorMessage) {
+        <div class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <!-- Save or update -->
+      <button type="submit" class="btn btn-success me-2" [disabled]="bookForm.invalid">
+        <i class="fa-solid fa-save me-2"></i>
+        {{ isEditMode ? 'Update Book' : 'Save Book' }}
+      </button>
+
+      <!-- Cancel -->
+      <a routerLink="/" class="btn btn-secondary"> Cancel </a>
+    </form>
+  </div>
+</div>
