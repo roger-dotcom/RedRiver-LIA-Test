@@ -51,10 +51,9 @@
 <div id="home" class="container py-5">
   <h1 class="text-primary">RedRiver LIA Test</h1>
   <p class="lead">Angular 20 + ASP.NET Core 9</p>
-@if (!token()) {
-  <!-- Login and registration -->
-  <div class="card shadow-sm p-4 mt-4">
-    
+  @if (!token()) {
+    <!-- Login and registration -->
+    <div class="card shadow-sm p-4 mt-4">
       @if (!showRegister) {
         <h2>Login</h2>
 
@@ -142,8 +141,8 @@
           </button>
         </p>
       }
-    }
-  </div>
+    </div>
+  }
   @if (router.url.startsWith('/books')) {
     <!-- Add book -->
     @if (token()) {
