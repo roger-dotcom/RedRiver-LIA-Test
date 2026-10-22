@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 interface Book {
@@ -19,11 +19,12 @@ interface Quote {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, RouterLink, FormsModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App implements OnInit {
+  menuOpen = false;
   books = signal<Book[]>([]);
   quotes = signal<Quote[]>([]);
 
@@ -40,7 +41,10 @@ export class App implements OnInit {
 
   private apiUrl = 'https://redriver-lia-test.onrender.com/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    public router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.loadBooks();
