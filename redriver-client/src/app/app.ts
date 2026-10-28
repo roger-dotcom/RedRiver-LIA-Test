@@ -100,8 +100,10 @@ export class App implements OnInit {
         error: (error) => {
           if (error.status === 409) {
             this.registerError = 'This username is already taken.';
+          } else if (error.error?.message) {
+            this.registerError = error.error.message;
           } else {
-            this.registerError = 'Could not create the account.';
+            this.registerError = 'Password must be stronger (at least 8 characters, etc.)';
           }
         },
       });
