@@ -26,7 +26,8 @@ export class BookForm implements OnInit {
   isEditMode = false;
   bookId: number | null = null;
 
-  private apiUrl = 'http://localhost:5031/api/books';
+  private apiUrl = 'https://redriver-lia-test.onrender.com/api/books';
+
   private getAuthHeaders() {
     const token = sessionStorage.getItem('authToken');
 
