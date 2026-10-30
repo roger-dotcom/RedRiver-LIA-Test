@@ -1,8 +1,9 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { filter } from 'rxjs';
 
 interface Book {
   id: number;
@@ -49,6 +50,12 @@ export class App implements OnInit {
   ngOnInit(): void {
     this.loadBooks();
     this.loadQuotes();
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd && event.urlAfterRedirects === '/books') {
+        this.loadBooks();
+      }
+    });
   }
 
   // Login
